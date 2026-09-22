@@ -11,6 +11,8 @@ const ASSETS_TO_CACHE = [
   'jszip.min.js',
   'favicon.png',
   '1024.png',
+  'mobile-home.png',
+  'desktop-home.png',
   'icons512_rounded.png'
 ];
 

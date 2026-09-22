@@ -1,5 +1,6 @@
 {
     "start_url": "/",
+    "id": "/",
     "theme_color": "#e8f0fe",
     "background_color": "#e8f0fe",
     "icons": [
@@ -20,6 +21,20 @@
             "src": "icon512_rounded.png",
             "type": "image/png"
         }
+    ],
+    "screenshots": [
+    {
+        "src": "desktop-home.png",
+        "sizes": "1920x1080",
+        "form_factor": "wide",
+        "label": "Desktop view of the app dashboard"
+    },
+    {
+        "src": "mobile-home.png",
+        "sizes": "750x1334",
+        "form_factor": "narrow",
+        "label": "Mobile view of the app dashboard"
+    }
     ],
     "orientation": "any",
     "display": "standalone",
