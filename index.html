@@ -9,7 +9,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="custom.min.css">
     <link rel="manifest" href="manifest.json">
-    <script src="jszip.min.js" defer></script>
 </head>
 
 <body>
@@ -42,12 +41,14 @@
             <button class="ic-btn-primary" id="icCompressBtn">Compress & Download ZIP</button>
         </div>
     </div>
+    <script src="jszip.min.js" defer></script>
+    <script src="script.js" defer></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Service Worker registered!', reg))
-                    .catch(err => console.log('Registration failed:', err));
+                .then(reg => console.log('Service Worker registered!', reg))
+                .catch(err => console.log('Registration failed:', err));
             });
         }
     </script>

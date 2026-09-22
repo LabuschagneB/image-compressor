@@ -1,11 +1,11 @@
-const CACHE_NAME = 'static-cache-v1';
+const CACHE_NAME = 'static-cache-v1.24414';
 
-// 1. List all the static files you want to work offline
 const ASSETS_TO_CACHE = [
   '/',
   'index.html',
   'custom.min.css',
   'sw.js',
+  'script.js',
   'manifest.json',
   'icons512_maskable.png',
   'jszip.min.js',
@@ -16,7 +16,6 @@ const ASSETS_TO_CACHE = [
   'icons512_rounded.png'
 ];
 
-// 2. Install Event: Saves your static assets to the browser cache
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -24,10 +23,9 @@ self.addEventListener('install', (event) => {
       return cache.addAll(ASSETS_TO_CACHE);
     })
   );
-  self.skipWaiting(); // Forces the waiting service worker to become active
+  self.skipWaiting();
 });
 
-// 3. Activate Event: Cleans up old caches if you update CACHE_NAME
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
@@ -44,14 +42,13 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// 4. Fetch Event: Serves files from cache if offline; falls back to network
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
-        return cachedResponse; // Return from cache
+        return cachedResponse;
       }
-      return fetch(event.request); // Fetch from network
+      return fetch(event.request);
     })
   );
 });
